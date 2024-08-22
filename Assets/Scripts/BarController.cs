@@ -7,8 +7,16 @@ public class BarController : MonoBehaviour
     public float speed = 100;
     public Rigidbody2D rb;
 
+    [SerializeField]
+    Rigidbody2D ball;
+
     public void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ball.AddForce(Vector2.up);
+        }
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
