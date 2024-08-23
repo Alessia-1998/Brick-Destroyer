@@ -16,6 +16,7 @@ public class BrickSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.gameManager.SetSpawnedBricks(rows * cols);
         SpawnBricks();
     }
 
@@ -26,7 +27,7 @@ public class BrickSpawner : MonoBehaviour
             for( int j=0; j<cols; j++)
             {
                 Vector2 newBrickPosition = new Vector2(transform.position.x + (j*xDistanceBetweenBricks), transform.position.y + (i*yDistanceBetweenBricks));
-                GameObject.Instantiate(brickPrefab, newBrickPosition, Quaternion.identity);
+                GameObject.Instantiate(brickPrefab, newBrickPosition, Quaternion.identity, transform);
             }
         }
     }

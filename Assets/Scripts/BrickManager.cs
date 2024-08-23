@@ -34,6 +34,7 @@ public class BrickManager : MonoBehaviour
 
             if( hitPoints <= 0 )
             {
+                GameManager.gameManager.BrickDestroyed();
                 Destroy(gameObject);
             }
         }
