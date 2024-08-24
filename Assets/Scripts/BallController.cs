@@ -9,17 +9,16 @@ public class BallController : MonoBehaviour
     [SerializeField]
     float ballspeed = 10f;
 
+    [SerializeField]
+    AudioSource ballSound, deathSound;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>(); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 
     private void FixedUpdate()
     {
@@ -31,11 +30,17 @@ public class BallController : MonoBehaviour
         body.velocity = ballspeed * body.velocity.normalized;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ballSound.Play();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Death")
         {
             GameManager.gameManager.GameOver();
+            deathSound.Play();
         }
     }
 }
