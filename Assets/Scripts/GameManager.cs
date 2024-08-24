@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
 
     int spawnedBricks = 0;
 
+    GameObject bar;
+
+    [SerializeField]
+    GameObject explosionEffect;
+
     private void Awake()
     {
         gameManager = this;
@@ -62,6 +67,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if( bar == null )
+        {
+            bar = GameObject.FindGameObjectWithTag("Bar");
+        }
+
+        GameObject.Instantiate( explosionEffect, bar.transform.position, Quaternion.identity, bar.transform );
+        bar.GetComponent<SpriteRenderer>().enabled = false;
+
         gameOver = true;
         gameOverPanel.SetActive(true);
     }

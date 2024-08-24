@@ -12,18 +12,21 @@ public class BrickManager : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    AudioSource brickHitSound;
+
+    [SerializeField]
+    ParticleSystem brickHitParticles;
+
+
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         ChangeColorOnLife();
+        brickHitSound = GetComponent<AudioSource>();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,6 +34,13 @@ public class BrickManager : MonoBehaviour
         {
             hitPoints --;
             ChangeColorOnLife();
+            brickHitSound.Play();
+            brickHitParticles.Play();
+
+            Vector3 collisionPoint = new Vector3( collision.contacts[0].point.x, collision.contacts[0].point.y );
+            Vector3 ballDir = collision.gameObject.transform.position - collisionPoint;
+            brickHitParticles.gameObject.transform.rotation = Quaternion.LookRotation( ballDir.normalized, Vector3.back );
+            brickHitParticles.transform.position = collisionPoint;
 
             if( hitPoints <= 0 )
             {
@@ -57,5 +67,8 @@ public class BrickManager : MonoBehaviour
                 sprite.color = oneLifeColor;
                 break;
         }
+
+        ParticleSystem.MainModule particleModule = brickHitParticles.main;
+        particleModule.startColor = sprite.color;
     }
 }

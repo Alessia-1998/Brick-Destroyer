@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Death
+  - Bar
   layers:
   - Default
   - TransparentFX
