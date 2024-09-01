@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "587991226803",
+    "project_id": "brick-destroyer-login",
+    "storage_bucket": "brick-destroyer-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587991226803:android:4d977669aa7fadd6f3d3c6",
+        "android_client_info": {
+          "package_name": "com.company.BrickDestroyer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEU9GqR2gvjBQxl3iYmGFtDSXapDpdjTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587991226803:android:0f5899e454c6be01f3d3c6",
+        "android_client_info": {
+          "package_name": "com.company.brickdestroyer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEU9GqR2gvjBQxl3iYmGFtDSXapDpdjTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
